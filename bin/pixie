@@ -1,0 +1,9 @@
+<?php
+namespace Pixie;
+
+require(__DIR__ . '/../src/bootstrap.php');
+
+use Pixie\Console\Application;
+
+$app = new Application();
+$app->run();
