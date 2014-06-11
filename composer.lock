@@ -3,8 +3,35 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "730ec04810239125f102f8f66850e7d9",
+    "hash": "6c65ef3e2692c79d1f67122e81a211cd",
     "packages": [
+        {
+            "name": "container-interop/container-interop",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/container-interop/container-interop.git",
+                "reference": "b4274c871bfd1ae8d8e527ba11734f4df1573e48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/b4274c871bfd1ae8d8e527ba11734f4df1573e48",
+                "reference": "b4274c871bfd1ae8d8e527ba11734f4df1573e48",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Container\\": "src/Interop/Container/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
+            "time": "2014-03-16 14:50:05"
+        },
         {
             "name": "slim/slim",
             "version": "2.4.3",

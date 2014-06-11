@@ -10,7 +10,8 @@
     ],
     "require": {
         "slim/slim": "~2.4",
-        "symfony/console": "~2.4"
+        "symfony/console": "~2.4",
+        "container-interop/container-interop": "*"
     },
     "autoload": {
         "psr-0": { "Pixie": "src/" }
