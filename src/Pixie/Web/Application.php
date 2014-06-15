@@ -24,7 +24,7 @@ class Application extends Slim
      */
     public function run()
     {
-        // $this->setupRoutes();
+        $this->setupRoutes();
         return parent::run();
     }
 

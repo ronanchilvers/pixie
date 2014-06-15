@@ -13,7 +13,6 @@ class Test extends Base
     {
         return function() {
             echo 'hallo';
-            exit;
         };
     }
 }
