@@ -1,14 +1,14 @@
 <?php
 
-namespace Pixie\Command;
+namespace Pixie\Console\Command;
 
-use Symfony\Component\Console\Command\Command as Command;
+use Symfony\Component\Console\Command\Command as BaseCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class TestCommand extends Command
+class TestCommand extends BaseCommand
 {
     protected function configure()
     {

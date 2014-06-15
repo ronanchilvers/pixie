@@ -2,7 +2,7 @@
 
 namespace Pixie\Console;
 
-use Pixie\Command;
+use Pixie\Console;
 use Symfony\Component\Console\Application as BaseApplication;
 
 class Application extends BaseApplication
