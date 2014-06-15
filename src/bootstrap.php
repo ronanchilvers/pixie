@@ -12,4 +12,8 @@ if (!$loader = includeIfExists(__DIR__.'/../vendor/autoload.php')) {
     exit(1);
 }
 
+if (function_exists('ini_set')) {
+    ini_set('error_log', __DIR__ . '/error.log');
+}
+
 return $loader;
