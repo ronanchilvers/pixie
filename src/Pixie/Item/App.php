@@ -9,7 +9,6 @@ use Pixie\String;
 
 class App extends BaseItem
 {
-
     const STATUS_NEW        = 'new';
     const STATUS_UPDATING   = 'updating';
     const STATUS_OK         = 'ok';
@@ -165,5 +164,4 @@ class App extends BaseItem
 	{
 		return (static::STATUS_UPDATING == $this->status);
 	}
-
 }

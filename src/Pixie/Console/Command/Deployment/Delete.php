@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Pixie\Item\App;
 
-class DeleteCommand extends BaseCommand
+class Delete extends BaseCommand
 {
     protected function configure()
     {

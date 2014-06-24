@@ -51,7 +51,7 @@ class Application extends Slim
     }
 
     /**
-     * Get an array of default commands / routes for this application
+     * Get an array of default routes for this application
      *
      * @return array
      * @author Ronan Chilvers <ronan@d3r.com>

@@ -1,26 +1,29 @@
 <?php
 
-namespace Pixie\Console\Command\Queue;
+namespace Pixie\Console\Command\Config;
 
 use Symfony\Component\Console\Command\Command as BaseCommand;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Pixie\DB\Setup;
 
-class ListCommand extends BaseCommand
+class Db extends BaseCommand
 {
     protected function configure()
     {
         $this
-            ->setName('queue:list')
-            ->setDescription('List all current queue jobs')
+            ->setName('config:db')
+            ->setDescription('Check that the db file exists and model tables are up to date')
             ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $text = 'Task list';
-        $output->writeln($text);
+        $output->writeLn('Checking database');
+        $db = new Setup();
+        $db->check($output);
     }
 }

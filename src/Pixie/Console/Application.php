@@ -19,15 +19,15 @@ class Application extends BaseApplication
         $defaultCommands    = parent::getDefaultCommands();
 
         // Configuration
-        $defaultCommands[]  = new Command\Config\DbCommand();
+        $defaultCommands[]  = new Command\Config\Db();
 
         // Deployments
-        $defaultCommands[]  = new Command\Deployment\ListCommand();
-        $defaultCommands[]  = new Command\Deployment\AddCommand();
-        $defaultCommands[]  = new Command\Deployment\DeleteCommand();
+        $defaultCommands[]  = new Command\Deployment\Listing();
+        $defaultCommands[]  = new Command\Deployment\Add();
+        $defaultCommands[]  = new Command\Deployment\Delete();
 
         // Queue
-        $defaultCommands[]  = new Command\Queue\ListCommand();
+        $defaultCommands[]  = new Command\Queue\List();
         return $defaultCommands;
     }
 }

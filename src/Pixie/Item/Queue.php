@@ -6,7 +6,6 @@ use Pixie\Item As BaseItem;
 
 class Queue extends BaseItem
 {
-
 	const PENDING  = 'pending';
 	const STARTED  = 'started';
 	const COMPLETE = 'complete';

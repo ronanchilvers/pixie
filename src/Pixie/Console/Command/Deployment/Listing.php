@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Pixie\Item\App;
 
-class ListCommand extends BaseCommand
+class Listing extends BaseCommand
 {
     protected function configure()
     {
