@@ -27,7 +27,7 @@ class Application extends BaseApplication
         $defaultCommands[]  = new Command\Deployment\Delete();
 
         // Queue
-        $defaultCommands[]  = new Command\Queue\List();
+        $defaultCommands[]  = new Command\Queue\Listing();
         return $defaultCommands;
     }
 }
