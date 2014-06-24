@@ -219,6 +219,18 @@ abstract class Item
         return $items;
     }
 
+    public static function getListingFields()
+    {
+        $fields = array();
+        foreach (static::$fields as $field => $config) {
+            if (!isset($config['listing']) || !$config['listing']) {
+                continue;
+            }
+            $fields[] = $field;
+        }
+        return $fields;
+    }
+
     /**
      * Get the current environment singleton
      *
@@ -304,21 +316,9 @@ abstract class Item
         return $this->_data;
     }
 
-    public function getListingFields()
-    {
-        $fields = array();
-        foreach (static::$fields as $field => $config) {
-            if (!isset($config['listing']) || !$config['listing']) {
-                continue;
-            }
-            $fields[] = $field;
-        }
-        return $fields;
-    }
-
     public function getListingData()
     {
-        $listingFields = $this->getListingFields();
+        $listingFields = static::getListingFields();
         $data = array();
         foreach ($listingFields as $field) {
             $data[$field] = $this->_data[static::FullFieldname($field)];
