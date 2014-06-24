@@ -136,7 +136,7 @@ class Context implements ContainerInterface
             $service = &$this->_services[$id];
             if (is_callable($service['service'])) {
                 try {
-                    $value = $service['service']();
+                    $value = $service['service']($this);
                     if (true === $service['singleton']) {
                         $service['service'] = $value;
                     };

@@ -1,13 +1,10 @@
 <?php
 
-namespace Pixie\Web\Command;
+namespace Pixie\Web\Route;
 
 class Test extends Base
 {
-    public function getPath()
-    {
-        return '/test';
-    }
+    protected $path = '/test';
 
     public function getClosure()
     {

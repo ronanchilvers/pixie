@@ -4,6 +4,7 @@ namespace Pixie\Console;
 
 use Pixie\Console;
 use Symfony\Component\Console\Application as BaseApplication;
+use Symfony\Component\Console\Command\HelpCommand;
 
 class Application extends BaseApplication
 {
@@ -16,7 +17,17 @@ class Application extends BaseApplication
     public function getDefaultCommands()
     {
         $defaultCommands    = parent::getDefaultCommands();
-        $defaultCommands[]  = new Command\TestCommand();
+
+        // Configuration
+        $defaultCommands[]  = new Command\Config\DbCommand();
+
+        // Deployments
+        $defaultCommands[]  = new Command\Deployment\ListCommand();
+        $defaultCommands[]  = new Command\Deployment\AddCommand();
+        $defaultCommands[]  = new Command\Deployment\DeleteCommand();
+
+        // Queue
+        $defaultCommands[]  = new Command\Queue\ListCommand();
         return $defaultCommands;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Pixie\Web;
 
-interface CommandInterface
+interface RouteInterface
 {
     /**
      * Get the path for this command

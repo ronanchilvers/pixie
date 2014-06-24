@@ -2,8 +2,10 @@
 
 namespace Pixie\Web;
 
+use Pixie\Environment;
+use Pixie\Web\Route;
+use Pixie\Web\View;
 use Slim\Slim;
-use Pixie\Web\Command;
 
 class Application extends Slim
 {
@@ -12,10 +14,15 @@ class Application extends Slim
      *
      * @author Ronan Chilvers <ronan@d3r.com>
      */
-    // public function __construct(array $userSettings = array())
-    // {
-    //     parent::__construct();
-    // }
+    public function __construct(array $userSettings = array())
+    {
+        $env = Environment::instance();
+        $userSettings['debug'] = true;
+        $userSettings['templates.path'] = $env->getTemplateDir();
+        $userSettings['view'] = new View();
+
+        parent::__construct($userSettings);
+    }
 
     /**
      * Run this application
@@ -36,7 +43,7 @@ class Application extends Slim
      */
     protected function setupRoutes()
     {
-        $commands = $this->getDefaultCommands();
+        $commands = $this->getDefaultRoutes();
         foreach ($commands as $command) {
             $verb = $command->getVerb();
             $this->{$verb}($command->getPath(), $command->getClosure());
@@ -49,10 +56,11 @@ class Application extends Slim
      * @return array
      * @author Ronan Chilvers <ronan@d3r.com>
      */
-    protected function getDefaultCommands()
+    protected function getDefaultRoutes()
     {
         return array(
-                new Command\Test()
+                new Route\Root($this),
+                new Route\Listing($this)
             );
     }
 }
