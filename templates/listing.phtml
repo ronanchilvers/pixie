@@ -1,2 +1,18 @@
-<?= $this->name ?>
-<?= print_r($this->config, true) ?>
+<? if ($this->apps && 0 < count($this->apps)): ?>
+<table>
+    <tr>
+<? foreach ($this->listingFields as $field): ?>
+        <th><?= $field ?></th>
+<? endforeach ?>
+    </tr>
+<? foreach ($this->apps as $app): ?>
+    <tr>
+    <? foreach ($app->getListingData() as $value): ?>
+        <td><?= $value ?></td>
+    <? endforeach ?>
+    </tr>
+<? endforeach ?>
+</table>
+<? else: ?>
+<p>No deployments found</p>
+<? endif ?>

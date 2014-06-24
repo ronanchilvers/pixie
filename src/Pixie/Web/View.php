@@ -46,4 +46,12 @@ class View extends SlimView
         parent::set($key, $value);
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function render($template, $data = null)
+    {
+        return parent::render($template, $data);
+    }
 }

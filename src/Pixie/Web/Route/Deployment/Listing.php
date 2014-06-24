@@ -1,8 +1,10 @@
 <?php
 
-namespace Pixie\Web\Route;
+namespace Pixie\Web\Route\Deployment;
 
 use Pixie\Environment;
+use Pixie\Web\Route\Base;
+use Pixie\Item\App;
 
 class Listing extends Base
 {
@@ -15,8 +17,8 @@ class Listing extends Base
     {
         $app = $this->app();
         return function() use ($app) {
-            $app->view()->name = 'ronan';
-            $app->view()->config = Environment::instance()->getConfig();
+            $app->view()->listingFields     = App::getListingFields();
+            $app->view()->apps              = App::find();
             $app->render('listing.phtml');
         };
     }

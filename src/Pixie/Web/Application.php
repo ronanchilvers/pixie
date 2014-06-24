@@ -10,6 +10,13 @@ use Slim\Slim;
 class Application extends Slim
 {
     /**
+     * The page view
+     *
+     * @var Pixie\Web\View
+     */
+    protected $page;
+
+    /**
      * Class constructor
      *
      * @author Ronan Chilvers <ronan@d3r.com>
@@ -59,8 +66,25 @@ class Application extends Slim
     protected function getDefaultRoutes()
     {
         return array(
+                new Route\Deployment\Listing($this),
                 new Route\Root($this),
-                new Route\Listing($this)
             );
+    }
+
+    /**
+     * Get and/or set the View
+     *
+     * The page view, rendered into the
+     *
+     * @return \Slim\View
+     */
+    public function page()
+    {
+        if (!$this->page instanceof View) {
+            $this->page = new View();
+            $this->view->setTemplatesDirectory($this->config('templates.path'));
+        }
+
+        return $this->page;
     }
 }
