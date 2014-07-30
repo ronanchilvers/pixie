@@ -8,18 +8,12 @@ use Pixie\Item\App;
 
 class Listing extends Base
 {
-    public function getPath()
-    {
-        return '/listing';
-    }
+    protected $path = '/listing';
+    protected $template = 'deployment/listing.phtml';
 
-    public function getClosure()
+    public function execute(\Pixie\Web\Route\Context $context)
     {
-        $app = $this->app();
-        return function() use ($app) {
-            $app->view()->listingFields     = App::getListingFields();
-            $app->view()->apps              = App::find();
-            $app->render('listing.phtml');
-        };
+        $this->view()->listingFields     = App::getListingFields();
+        $this->view()->apps              = App::find();
     }
 }

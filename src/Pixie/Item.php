@@ -341,6 +341,17 @@ abstract class Item
         return (!empty($this->_errors));
     }
 
+    /**
+     * Get the current error array
+     *
+     * @return array
+     * @author Ronan Chilvers <ronan@d3r.com>
+     */
+    public function getErrors()
+    {
+        return $this->_errors;
+    }
+
     public function getFieldClasses($name)
     {
         $css = array();

@@ -23,10 +23,10 @@ class Application extends Slim
      */
     public function __construct(array $userSettings = array())
     {
-        $env = Environment::instance();
-        $userSettings['debug'] = true;
-        $userSettings['templates.path'] = $env->getTemplateDir();
-        $userSettings['view'] = new View();
+        $env                                = Environment::instance();
+        $userSettings['debug']              = true;
+        $userSettings['templates.path']     = $env->getTemplateDir();
+        $userSettings['view']               = new View();
 
         parent::__construct($userSettings);
     }
@@ -52,8 +52,14 @@ class Application extends Slim
     {
         $commands = $this->getDefaultRoutes();
         foreach ($commands as $command) {
-            $verb = $command->getVerb();
-            $this->{$verb}($command->getPath(), $command->getClosure());
+            $route = $this->mapRoute(array(
+                    $command->getPath(),
+                    $command->getClosure()
+                )
+            );
+            foreach ($command->getVerbs() as $verb) {
+                $route->via($verb);
+            }
         }
     }
 
@@ -67,24 +73,9 @@ class Application extends Slim
     {
         return array(
                 new Route\Deployment\Listing($this),
+                new Route\Deployment\Add($this),
+                new Route\Deployment\Delete($this),
                 new Route\Root($this),
             );
-    }
-
-    /**
-     * Get and/or set the View
-     *
-     * The page view, rendered into the
-     *
-     * @return \Slim\View
-     */
-    public function page()
-    {
-        if (!$this->page instanceof View) {
-            $this->page = new View();
-            $this->view->setTemplatesDirectory($this->config('templates.path'));
-        }
-
-        return $this->page;
     }
 }

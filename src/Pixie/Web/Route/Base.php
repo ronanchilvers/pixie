@@ -3,6 +3,7 @@
 namespace Pixie\Web\Route;
 
 use Pixie\Web\RouteInterface;
+use Pixie\Web\Route\Context;
 
 abstract class Base implements RouteInterface
 {
@@ -11,7 +12,7 @@ abstract class Base implements RouteInterface
      *
      * @var string
      */
-    protected $verb = 'GET';
+    protected $verbs = array('GET');
 
     /**
      * The path for this command
@@ -26,6 +27,22 @@ abstract class Base implements RouteInterface
      * @var Pixie\Web\Application
      */
     protected $app = false;
+
+    /**
+     * The layouts to use for this route
+     *
+     * @var array
+     */
+    protected $layouts = array(
+            'layouts/page.phtml'
+        );
+
+    /**
+     * The template to render for this action
+     *
+     * @var string
+     */
+    protected $template;
 
     /**
      * Class constructor
@@ -43,9 +60,17 @@ abstract class Base implements RouteInterface
      * @return string
      * @author Ronan Chilvers <ronan@d3r.com>
      */
-    public function getVerb()
+    public function getVerbs()
     {
-        return strtolower($this->verb);
+        $verbs = $this->verbs;
+        if (!is_array($verbs)) {
+            $verbs = array($verbs);
+        }
+        $verbs = array_map(function ($value) {
+            return strtoupper($value);
+        }, $this->verbs);
+
+        return $verbs;
     }
 
     /**
@@ -71,10 +96,47 @@ abstract class Base implements RouteInterface
     }
 
     /**
+     * Get the view object for this Route
+     *
+     * @return Pixie\Web\View
+     * @author Ronan Chilvers <ronan@d3r.com>
+     */
+    protected function view()
+    {
+        return $this->app()->view();
+    }
+
+    /**
+     * Get the closure object for this route
+     *
+     * @return Closure
+     * @author Ronan Chilvers <ronan@d3r.com>
+     */
+    public function getClosure()
+    {
+        $app = $this->app;
+
+        return function () use ($app) {
+            $args = func_get_args();
+            $context = Context::Factory()
+                        ->service('app', $app)
+                        ->service('args', $args)
+                        ;
+            $this->execute($context);
+            if (is_array($this->layouts) && 0 < count($this->layouts)) {
+                foreach ($this->layouts as $layout) {
+                    $this->view()->addLayout($layout);
+                }
+            }
+            $app->render($this->template);
+        };
+    }
+
+    /**
      * Get the closure that should execute when this command fires
      *
      * @return Closure
      * @author Ronan Chilvers <ronan@d3r.com>
      */
-    abstract public function getClosure();
+    abstract public function execute(\Pixie\Web\Route\Context $context);
 }

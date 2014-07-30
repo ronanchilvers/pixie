@@ -4,16 +4,10 @@ namespace Pixie\Web\Route;
 
 class Root extends Base
 {
-    public function getPath()
-    {
-        return '/';
-    }
+    protected $path = '/';
 
-    public function getClosure()
+    public function execute(\Pixie\Web\Route\Context $context)
     {
-        $app = $this->app();
-        return function() use ($app) {
-            $app->redirect('/listing');
-        };
+        $context->app->redirect('/listing');
     }
 }

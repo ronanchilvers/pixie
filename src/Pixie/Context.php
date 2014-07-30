@@ -65,6 +65,11 @@ class Context implements ContainerInterface
         }
     }
 
+    public function __get($id)
+    {
+        return $this->get($id);
+    }
+
     /**
      * Set a service definition into the services registry
      *

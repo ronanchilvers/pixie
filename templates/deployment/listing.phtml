@@ -10,6 +10,9 @@
     <? foreach ($app->getListingData() as $value): ?>
         <td><?= $value ?></td>
     <? endforeach ?>
+        <td>
+            [ <a href="/delete/<?= $app->id ?>">delete</a> ]
+        </td>
     </tr>
 <? endforeach ?>
 </table>
