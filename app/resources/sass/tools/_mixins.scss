@@ -1,0 +1,40 @@
+////
+/// Core Mixins
+///
+/// @author Dom Morgan <dom@d3r.com>
+////
+
+$base-px: 18px !default;
+
+/// Good old fashioned clearfix. Add to a container.
+@mixin clearfix {
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        overflow: hidden;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+/// Convert font sizes in pixels to rems
+///
+/// @param {int} $pixels The desired aspect ratio as width/height
+@mixin rem($pixels) {
+    font-size: $pixels;
+    font-size: ($pixels / $base-px) * 1rem;
+}
+
+/// Wrap content in an appropriate media query
+///
+/// @parameter {string} $point The named breakpoint
+@mixin breakpoint($point) {
+    @if map-get($breakpoints, $point) {
+        @media screen and (unquote(map-get($breakpoints, $point))) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}

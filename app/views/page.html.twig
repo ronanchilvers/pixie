@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title 'Welcome' %}</title>
+        <link rel="stylesheet" type="text/css" href="/css/global.css" />
+{% if stylesheets is defined %}
+    {% for stylesheet in stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+    {% endfor %}
+{% endif %}
+    </head>
+    <body>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <script type="text/javascript" src="/js/global.js"></script>
+{% if scripts is defined %}
+    {% for script in scripts %}
+        <script type="text/javascript" src="{{ script }}"></script>
+    {% endfor %}
+{% endif %}
+    </body>
+</html>

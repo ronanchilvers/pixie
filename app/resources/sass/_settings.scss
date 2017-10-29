@@ -1,0 +1,13 @@
+// Main settings
+
+$breakpoints: (
+    desktop: "min-width: 1000px",
+    tablet: "max-width: 999px",
+    tablet-portrait: "max-width: 768px",
+    mobile: "max-width: 500px"
+);
+
+$page-margin: 15px;
+
+$base-px: 18px;
+

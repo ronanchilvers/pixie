@@ -1,0 +1,17 @@
+<?php
+
+namespace Deployer;
+
+require 'recipe/composer.php';
+
+set('repository', 'CHANGEME');
+set('shared_dirs', [
+    'var'
+]);
+after('deploy:vendors', 'deploy:shared');
+server('production', 'CHANGEME')
+    ->forwardAgent()
+    ->user('CHANGEME')
+    ->set('deploy_path', 'CHANGEME')
+    ->stage('production')
+    ;
