@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace Pixie\Controller;
 
-use App\Controller;
+use Pixie\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

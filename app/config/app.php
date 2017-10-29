@@ -1,6 +1,6 @@
 <?php
 
-use App\Application;
+use Pixie\Application;
 
 // Create new app
 $app = new Application();
@@ -25,7 +25,7 @@ $app->register(new DDesrosiers\SilexAnnotations\AnnotationServiceProvider(), arr
         __DIR__ . '/../../var/cache/annotations'
     ),
     'annot.controllerDir' => __DIR__ . '/../../src/Controller',
-    'annot.controllerNamespace' => 'App\\Controller\\'
+    'annot.controllerNamespace' => 'Pixie\\Controller\\'
 ));
 
 // Spot2

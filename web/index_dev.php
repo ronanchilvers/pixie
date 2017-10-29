@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use App\Application;
+use Pixie\Application;
 
 if (php_sapi_name() == "cli-server") {
     $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);

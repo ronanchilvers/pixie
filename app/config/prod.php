@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\ErrorController;
-use App\Controller\TestController;
+use Pixie\Controller\ErrorController;
+use Pixie\Controller\TestController;
 use Symfony\Component\HttpFoundation\Request;
 
 // ****************************************************************

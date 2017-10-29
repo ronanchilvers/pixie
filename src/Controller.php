@@ -1,22 +1,22 @@
 <?php
 
-namespace App;
+namespace Pixie;
 
-use App\Application;
+use Pixie\Application;
 
 abstract class Controller
 {
     /**
      * The application object
      *
-     * @var App\Application
+     * @var Pixie\Application
      */
     private $app;
 
     /**
      * Class constructor
      *
-     * @param  App\Application $app
+     * @param  Pixie\Application $app
      * @author Ronan Chilvers <ronan@d3r.com>
      */
     public function __construct(Application $app)
@@ -27,7 +27,7 @@ abstract class Controller
     /**
      * Get the application object
      *
-     * @return App\Application
+     * @return Pixie\Application
      * @author Ronan Chilvers <ronan@d3r.com>
      */
     protected function app()

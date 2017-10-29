@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Pixie;
 
 use Silex\Application\TwigTrait;
 use Silex\Application as SilexApplication;
