@@ -1,9 +1,16 @@
 <?php
 
+use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Pixie\Application;
 
 // Create new app
 $app = new Application();
+
+// Standard definitions
+$app['app.root'] = __DIR__;
+$app['app.src'] = __DIR__ . '/src';
+$app['app.var'] = __DIR__ . '/var';
+$app['app.web'] = __DIR__ . '/web';
 
 // Core silex providers
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
@@ -28,11 +35,26 @@ $app->register(new DDesrosiers\SilexAnnotations\AnnotationServiceProvider(), arr
     'annot.controllerNamespace' => 'Pixie\\Controller\\'
 ));
 
-// Spot2
-// $app->register(new \Ronanchilvers\Silex\Provider\Spot2ServiceProvider(), [
-//     'spot2.connections' => [
-//         'default' => 'sqlite://' . __DIR__ . '/../../var/data/database.sqlite'
-//     ]
-// ]);
+// Doctrine DBAL
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_sqlite',
+        'path'     => $app['app.var'] . '/pixie.db',
+    ),
+));
+
+// Doctrine ORM
+$app->register(new DoctrineOrmServiceProvider, array(
+    'orm.proxies_dir' => $app['app.var'] . '/doctrine/proxies',
+    'orm.em.options' => [
+        'mappings' => [
+            [
+                'type' => 'annotation',
+                'namespace' => 'Pixie\Entities',
+                'path' => $app['app.src'] . '/Entities',
+            ]
+        ],
+    ],
+));
 
 return $app;
