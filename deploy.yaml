@@ -1,0 +1,10 @@
+---
+shared:
+  files:
+  - gulpfile.js
+  - README.md
+  folders:
+  - app
+writables:
+  folders:
+  - app
