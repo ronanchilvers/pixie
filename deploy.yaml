@@ -1,4 +1,6 @@
 ---
+composer:
+  command: install --optimize-autoloader --dev
 shared:
   files:
   - gulpfile.js
