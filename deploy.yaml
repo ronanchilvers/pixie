@@ -10,3 +10,4 @@ shared:
 writables:
   - src
   - app/views
+  - web/css
