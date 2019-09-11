@@ -7,3 +7,4 @@ shared:
   files:
     - gulpfile.js
     - web/index.php
+    - bin/console
