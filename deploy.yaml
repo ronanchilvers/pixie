@@ -8,5 +8,5 @@ shared:
     - web/index.php
     - bin/console
 writables:
-  - var/cache
-  - var/tmp
+  - src
+  - app/views
