@@ -7,3 +7,6 @@ shared:
     - gulpfile.js
     - web/index.php
     - bin/console
+writables:
+  - var/cache
+  - var/tmp
