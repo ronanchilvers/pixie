@@ -11,3 +11,5 @@ writables:
   - src
   - app/views
   - web/css
+cleanup:
+  keep_releases: 2
