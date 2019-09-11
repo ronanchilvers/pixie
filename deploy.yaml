@@ -1,3 +1,11 @@
 ---
 composer:
   command: install --optimize-autoloader --dev
+shared:
+  folders:
+    - bin
+    - web/css
+    - web/js
+  files:
+    - gulpfile.js
+    - bin/console
