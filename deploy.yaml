@@ -1,6 +1,4 @@
 ---
-composer:
-  command: install --optimize-autoloader --dev
 shared:
   folders:
     - bin
