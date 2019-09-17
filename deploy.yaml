@@ -7,6 +7,3 @@ shared:
     - gulpfile.js
     - web/index.php
     - bin/console
-writables:
-  - app/views
-  - web/css
