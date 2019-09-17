@@ -8,6 +8,5 @@ shared:
     - web/index.php
     - bin/console
 writables:
-  - src
   - app/views
   - web/css
