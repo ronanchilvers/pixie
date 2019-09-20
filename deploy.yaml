@@ -7,3 +7,10 @@ shared:
     - gulpfile.js
     - web/index.php
     - bin/console
+clear_paths:
+  - .gitignore
+  - deploy.yaml
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - README.md
