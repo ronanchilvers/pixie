@@ -1,12 +1,10 @@
 ---
+composer:
+  after:
+    - php bin/console > tmp/console.out
 shared:
   folders:
-    - web/css
-    - web/js
-  files:
-    - gulpfile.js
-    - web/index.php
-    - bin/console
+    - tmp
 clear_paths:
   - .gitignore
   - deploy.yaml
