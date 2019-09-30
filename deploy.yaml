@@ -1,7 +1,7 @@
 ---
 composer:
   after:
-    - php bin/console > console.out
+    - echo "hallo" > console.out
 shared:
   folders:
     - tmp
