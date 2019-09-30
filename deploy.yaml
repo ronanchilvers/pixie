@@ -5,10 +5,14 @@ composer:
 shared:
   folders:
     - tmp
+writables:
+  paths:
+    - tmp
 clear_paths:
-  - .gitignore
-  - deploy.yaml
-  - gulpfile.js
-  - LICENSE
-  - package.json
-  - README.md
+  paths:
+    - .gitignore
+    - deploy.yaml
+    - gulpfile.js
+    - LICENSE
+    - package.json
+    - README.md
