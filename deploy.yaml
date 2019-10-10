@@ -16,3 +16,5 @@ clear_paths:
     - LICENSE
     - package.json
     - README.md
+cleanup:
+  keep_releases: 10
