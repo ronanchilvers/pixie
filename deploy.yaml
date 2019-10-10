@@ -17,4 +17,4 @@ clear_paths:
     - package.json
     - README.md
 cleanup:
-  keep_releases: 10
+  keep_deployments: 10
