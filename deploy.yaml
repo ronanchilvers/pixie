@@ -1,7 +1,9 @@
 ---
 composer:
+  before:
+    - echo "before hook" > console.out
   after:
-    - echo "hallo" > console.out
+    - echo "after hook" >> console.out
 shared:
   folders:
     - tmp
