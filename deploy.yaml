@@ -18,5 +18,3 @@ clear_paths:
     - LICENSE
     - package.json
     - README.md
-cleanup:
-  keep_deployments: 10
